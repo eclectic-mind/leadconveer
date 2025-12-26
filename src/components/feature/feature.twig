@@ -1,0 +1,13 @@
+{% for item in items %}
+    <article class="features__item">
+        <figure class="features__img">
+            <img src="{{ item.img }}" alt="{{ item.title }}">
+        </figure>
+        <div class="features__content">
+            <div class="features__title">
+                <h3>{{ item.title }}</h3>
+            </div>
+            <p class="features__text">{{ item.text }}</p>
+        </div>
+    </article>
+{% endfor %}

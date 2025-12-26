@@ -1,0 +1,54 @@
+<section class="section first-screen">
+    <div class="section__container">
+        <div class="section__inner columns">
+            <div class="column column_theme_half first-screen__content">
+                <div class="first-screen__text">
+                    <h1 class="first-screen__title"><span class="accent">Лидогенерация</span><br>для бизнеса</h1>
+                    <div class="first-screen__slogan">
+                        <p>Покупайте только целевые лиды по фиксированной цене от 300 ₽</p>
+                    </div>
+                    {% include '../../components/button/button.twig' with {
+                        isLink: true,
+                        text: 'Выбрать пакет лидов',
+                        url: '#'
+                    }%}
+                </div>
+            </div>
+
+            <div class="column column_theme_half first-screen__picture">
+                {% include '../../components/picture/picture.twig' with {
+                    src: "/images/picture/first-screen-img.png",
+                    alt: "Лидогенерация для бизнеса"
+                }%}
+            </div>
+        </div>
+    </div>
+
+    <div class="section__container">
+        <div class="section__inner">
+            {% include '../../components/services/services.twig' with {
+                items: [
+                    {
+                        title: 'Лидогенерация в&nbsp;b2b',
+                        url: '#'
+                    }, {
+                        title: 'Биржа лидов',
+                        url: '#'
+                    }, {
+                        title: 'Сервис по&nbsp;Лидгену',
+                        url: '#'
+                    }, {
+                        title: 'Лиды для производства',
+                        url: '#'
+                    }, {
+                       title: 'Клиенты для бизнеса',
+                       url: '#'
+                    }, {
+                       title: 'Определить телефон посетителя сайта',
+                       url: '#'
+                    }
+                ]
+            } %}
+        </div>
+    </div>
+</section>

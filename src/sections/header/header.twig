@@ -1,0 +1,40 @@
+<header class="header">
+    <div class="header__container">
+        <div class="section__inner">
+            <a class="header__logo" href="#">
+                <img src="/images/header/logo.svg" alt="LeadConveer">
+            </a>
+            <nav class="header__nav mobile-hidden tablet-hidden">
+                {% include '../../components/navigation/navigation.twig' with {
+                    modificator: 'navigation_theme_top',
+                    items: [
+                        {
+                            title: 'Как это работает',
+                            url: '#'
+                        }, {
+                            title: 'Цена',
+                            url: '#'
+                        }, {
+                            title: 'Отзывы',
+                            url: '#'
+                        }, {
+                            title: 'Контакты',
+                            url: '#'
+                        }
+                    ]
+                } %}
+            </nav>
+            <div class="header__contacts">
+                <div class="header__socials">
+                    <a href="#" class="social">
+                        {% include "./media/socials_wa.svg" %}
+                    </a>
+                    <a href="#" class="social">
+                        {% include "./media/socials_tg.svg" %}
+                    </a>
+                </div>
+                <a href="tel:+74951183282" class="header__phone mobile-hidden">+7&nbsp;495 118-32-82</a>
+            </div>
+        </div>
+    </div>
+</header>

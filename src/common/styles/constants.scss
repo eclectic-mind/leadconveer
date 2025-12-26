@@ -1,0 +1,74 @@
+@import 'mixins';
+
+// BREAKPOINTS
+$tablet-portrait-upper-bound: 669px;
+$tablet-landscape-upper-bound: 959px;
+$laptop-upper-bound: 1279px;
+$laptop-wide-upper-bound: 1439px;
+$fullhd-upper-bound: 1919px;
+$ultra-upper-bound: 2559px;
+
+// Ranges
+$mobile-range: (320px, $tablet-portrait-upper-bound);
+$tablet-portrait-range: ($tablet-portrait-upper-bound + 1, $tablet-landscape-upper-bound);
+$tablet-landscape-range: ($tablet-landscape-upper-bound + 1, $laptop-upper-bound);
+$laptop-range: ($laptop-upper-bound + 1, $laptop-wide-upper-bound);
+$laptop-wide-range: ($laptop-wide-upper-bound + 1, $fullhd-upper-bound);
+$fullhd-range: ($fullhd-upper-bound + 1, $ultra-upper-bound);
+$ultra-range: ($ultra-upper-bound + 1, 10000px);
+
+// Medias
+$screen: "only screen";
+
+$mobile: "#{$screen}";
+$mobile-only: "#{$screen} and (max-width: #{upper-bound($mobile-range)})";
+
+$tablet-portrait: "#{$screen} and (min-width:#{lower-bound($tablet-portrait-range)})";
+$tablet-portrait-only: "#{$screen} and (min-width:#{lower-bound($tablet-portrait-range)}) and (max-width:#{upper-bound($tablet-portrait-range)})";
+
+$tablet-landscape: "#{$screen} and (min-width:#{lower-bound($tablet-landscape-range)})";
+$tablet-landscape-only: "#{$screen} and (min-width:#{lower-bound($tablet-landscape-range)}) and (max-width:#{upper-bound($tablet-landscape-range)})";
+
+$laptop: "#{$screen} and (min-width:#{lower-bound($laptop-range)})";
+$laptop-only: "#{$screen} and (min-width:#{lower-bound($laptop-range)}) and (max-width:#{upper-bound($laptop-range)})";
+
+$laptop-wide: "#{$screen} and (min-width:#{lower-bound($laptop-wide-range)})";
+$laptop-wide-only: "#{$screen} and (min-width:#{lower-bound($laptop-wide-range)}) and (max-width:#{upper-bound($laptop-wide-range)})";
+
+$fullhd: "#{$screen} and (min-width:#{lower-bound($fullhd-range)})";
+$fullhd-only: "#{$screen} and (min-width:#{lower-bound($fullhd-range)}) and (max-width:#{upper-bound($fullhd-range)})";
+
+$ultra: "#{$screen} and (min-width:#{lower-bound($ultra-range)})";
+$ultra-only: "#{$screen} and (min-width:#{lower-bound($ultra-range)}) and (max-width:#{upper-bound($ultra-range)})";
+
+// RADIUS
+$biggest-radius: 60px;
+$big-radius: 40px;
+$middle-radius: 30px;
+$small-radius: 20px;
+
+// FONT
+$font-header: "montserrat", sans-serif;
+$font-basic: "inter", sans-serif;
+
+$fs-h1-desktop: 80px;
+$fs-h1-mobile: 48px;
+$fs-h2-desktop: 48px;
+$fs-h2-mobile: 32px;
+$fs-h3-desktop: 32px;
+$fs-h3-mobile: 24px;
+$fs-p-desktop: 24px;
+$fs-p-mobile: 18px;
+$fs-small-desktop: 20px;
+$fs-small-mobile: 16px;
+
+// COLORS
+$dark: #2d2d2d;
+$white: #ffffff;
+$gray: #808080;
+$light-gray: #f6f6f6;
+$thumb-gray: #dbdbdb;
+$hover-gray: #c0c0c0;
+$accent: #ff6600;
+$bg: #f6f6f6;
+$gradient: linear-gradient(90deg, #FF6600 0%, #F26659 27%, #F06177 37%, #E55D97 48%, #CA46D2 71%, #8D13F9 100%);

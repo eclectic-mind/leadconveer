@@ -1,0 +1,65 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  overflow-anchor: none;
+  margin: 0;
+  background-color: $white;
+  color: $dark;
+  -webkit-font-smoothing: antialiased;
+}
+
+.main {
+  @include fluid-indent(40px, 130px, margin-bottom);
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  margin-top: 82px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.footer {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.mobile-hidden {
+    @media #{$mobile-only} {
+        display: none;
+    }
+}
+
+.tablet-hidden {
+  @media #{$tablet-portrait} {
+    display: none;
+  }
+
+  @media #{$laptop} {
+    display: flex;
+  }
+}

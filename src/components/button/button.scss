@@ -1,0 +1,33 @@
+.button {
+    @include reset-button();
+    @include transition(all);
+    @include fluid-font($fs-p-mobile, $fs-p-desktop);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 72px;
+    border-radius: $small-radius;
+    background-color: $accent;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 700;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: $white;
+    cursor: pointer;
+
+    @media #{$laptop} {
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    &:disabled,
+    &.is-disabled,
+    &-disabled {
+        cursor: default;
+        pointer-events: none;
+        opacity: 0.5;
+    }
+}

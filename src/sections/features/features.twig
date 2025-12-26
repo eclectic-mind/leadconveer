@@ -1,0 +1,31 @@
+<section class="section features">
+    <div class="section__container">
+        <div class="section__title">
+            <h2>Завалим ваш отдел продаж<br><span class="accent">целевыми Лидами</span></h2>
+        </div>
+        <div class="section__content features__list">
+            {% include '../../components/feature/feature.twig' with {
+                items: [
+                    {
+                        title: 'Оплата за&nbsp;результат',
+                        text: 'Вы&nbsp;платите только за&nbsp;переданные и&nbsp;получение вами целевые Лиды &mdash;&nbsp;их&nbsp;контактные данные (телефон, Telegram, email)',
+                        img: '/images/feature/features-1.png'
+                    }, {
+                       title: 'Качественные лиды',
+                       text: 'Все передаваемые вам Лиды&nbsp;&mdash; это потенциальные клиенты, которые искали ваш товар или услугу',
+                       img: '/images/feature/features-2.png'
+                    }, {
+                        title: 'Любой объём&nbsp;&mdash; на&nbsp;ваш выбор',
+                       text: 'Покупайте сколько контактов потенциальных клиентов в&nbsp;месяц
+                              &mdash;&nbsp;сколько требуется вам!',
+                       img: '/images/feature/features-3.png'
+                    }, {
+                        title: 'Комплекс технологий',
+                       text: 'После расчёта стоимости Лидов и&nbsp;оплаты выбранного пакета&nbsp;&mdash; вы&nbsp;получите уникальный код для своего сайта, который позволит отслеживать контакты тех, кто не&nbsp;оставил заявку',
+                       img: '/images/feature/features-4.png'
+                    }
+                ]
+            } %}
+        </div>
+    </div>
+</section>

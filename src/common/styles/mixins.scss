@@ -1,0 +1,179 @@
+@use "sass:math";
+
+$min-width: 670px;
+$max-width: 1920px;
+
+@mixin transition($property...) {
+    transition-property: $property;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+}
+
+/* stylelint-disable  property-no-vendor-prefix */
+@mixin reset-button() {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    text-align: inherit;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+
+    /* inherit font & color from ancestor */
+    color: inherit;
+    font: inherit;
+
+    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+    line-height: normal;
+
+    /* Corrects font smoothing for webkit */
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+
+    /* Corrects inability to style clickable `input` types in iOS */
+    -webkit-appearance: none;
+
+    /* Remove excess padding and border in Firefox 4+ */
+    &::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+}
+
+// FONT
+@mixin fluid-font($min-size, $max-size) {
+  font-size: $min-size;
+
+  @media (min-width: $min-width) {
+    font-size: calc(#{$min-size} + #{strip-unit($max-size - $min-size)} * ((100vw - #{$min-width}) / #{strip-unit($max-width - $min-width)}));
+  }
+
+  @media (min-width: $max-width) {
+    font-size: $max-size;
+  }
+}
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return math.div($number, $number * 0 + 1);
+  }
+  @return $number;
+}
+
+@mixin font($family, $src, $weight: false, $style: false) {
+  @font-face {
+    font-display: swap;
+    font-family: $family;
+    src: url("/fonts/" + $src + ".woff2") format("woff2"), url("/fonts/" + $src + ".woff") format("woff");
+
+    @if ($weight) {
+      font-weight: $weight;
+    }
+
+    @if ($style) {
+      font-style: $style;
+    }
+  }
+}
+
+// INDENTS
+@mixin fluid-indent($min-size, $max-size, $indent-type, $min-vw: 320px, $max-vw: 1920px) {
+  $min-val: strip-unit($min-size);
+  $max-val: strip-unit($max-size);
+  $min-vw-val: strip-unit($min-vw);
+  $max-vw-val: strip-unit($max-vw);
+
+  $slope: ($max-val - $min-val) / ($max-vw-val - $min-vw-val);
+  $base: $min-val - $slope * $min-vw-val;
+
+  #{$indent-type}: calc(#{$base}px + #{$slope * 100}vw);
+}
+
+// Вспомогательная функция для удаления единиц
+@function strip-unit($number) {
+  @if type-of($number) == 'number' {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
+
+// GRID
+@function lower-bound($range) {
+  @return nth($range, 1);
+}
+
+@function upper-bound($range) {
+  @return nth($range, 2);
+}
+
+// значения max-width
+// max-width - 1920 || 100% || auto
+// 1920 - max-width = 1920px, равно переданному числу
+// auto - max width = columns * columns width
+// 100% - max width: 100%, равно переданным процентам
+$grid-max-width: 1780;
+
+// число колонок
+$grid-columns: 12;
+
+// ширина колоки
+$grid-columns-width: 130;
+
+// переводит число в пиксели
+// $number - {Number} - число - 100
+// @return - {String} - возврщает число в пикселях - 100px
+@function numberToPx($number) {
+  @return $number * 1px;
+}
+
+@function column($number: 1, $of: $grid-columns) {
+  @if $number == "half" {
+    @return percentage(0.5); // или math.div(1, 2)
+  } @else if $number == "third" { // исправил опечатку: "thrid" → "third"
+    @return percentage(math.div(1, 3));
+  } @else if $number == "fourth" {
+    @return percentage(math.div(1, 4));
+  } @else {
+    @return percentage(math.div($number, $of));
+  }
+}
+
+@mixin container($width: $grid-max-width) {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+
+  @if $width == auto {
+    max-width: numberToPx($grid-columns * $grid-columns-width);
+  } @else if unit($width) == "%" {
+    max-width: $width;
+  } @else if type-of($width) == "number" {
+    max-width: numberToPx($width);
+  }
+}
+
+// создает колонку
+// $number - {Number} - количество колонок
+// $of - {Number} - из какого количества колонок;  по умолчанию из $grid-columns = 36
+@mixin column($number: 1, $of: $grid-columns) {
+  // alias half
+  @if $number == "half" {
+    flex-basis: column(1, 2);
+    max-width: column(1, 2);
+    // alias thrid
+  } @else if $number == "thrid" {
+    flex-basis: column(1, 3);
+    max-width: column(1, 3);
+    // alias fourth
+  } @else if $number == "fourth" {
+    flex-basis: column(1, 4);
+    max-width: column(1, 4);
+  } @else {
+    flex-basis: column($number, $of);
+    max-width: column($number, $of);
+  }
+  flex-grow: 1;
+  box-sizing: border-box;
+}

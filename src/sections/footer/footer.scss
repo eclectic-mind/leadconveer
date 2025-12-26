@@ -1,0 +1,43 @@
+.footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-radius: $middle-radius $middle-radius 0 0;
+  background-color: $dark;
+}
+
+.footer__container {
+  @include container();
+  @include fluid-indent(40, 80, margin-bottom);
+  @include fluid-indent(40, 80, margin-top);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__text {
+  width: column(9.5, 12);
+  color: $white;
+  text-align: center;
+}
+
+.footer__copyright {
+  @include fluid-font($fs-h3-mobile, $fs-h3-desktop);
+}
+
+.footer__requisites {
+  @include fluid-font($fs-p-mobile, $fs-p-desktop);
+  margin-top: 20px;
+  text-align: center;
+}
+
+.footer__nav {
+  width: column(11, 12);
+  margin-top: 10px;
+}

@@ -1,0 +1,78 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  min-height: 82px;
+  width: 100%;
+  border-radius: 0 0 $middle-radius $middle-radius;
+  background-color: $dark;
+}
+
+.header__container {
+  @include container();
+  display: flex;
+  justify-content: center;
+}
+
+.header__logo {
+  @include transition(all);
+  height: 60px;
+  width: auto;
+
+  @media #{$laptop} {
+    height: 70px;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  img {
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.header__contacts {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__socials {
+  display: flex;
+  flex-wrap: nowrap;
+
+  .social {
+    @include transition(all);
+    display: inline-block;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    min-height: 40px;
+    margin-right: 10px;
+    border: 0;
+
+    @media #{$laptop} {
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+.header__phone {
+  @include transition(all);
+  @include fluid-font($fs-h3-mobile, $fs-h3-desktop);
+  color: $white;
+  text-decoration: none;
+
+  @media #{$laptop} {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

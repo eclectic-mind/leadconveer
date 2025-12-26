@@ -1,0 +1,9 @@
+<ul class="navigation {% if modificator %}{{ modificator }}{% endif %}">
+    {% for item in items %}
+        <li class="navigation__item">
+            <a class="navigation__link" href="{{ item.url }}">
+                {{ item.title }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>

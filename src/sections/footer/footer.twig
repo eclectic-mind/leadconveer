@@ -1,0 +1,35 @@
+<footer class="footer">
+    <div class="footer__container">
+        <div class="footer__text">
+            <div class="footer__copyright">
+                &copy;&nbsp;2025 Все права защищены. Технология &laquo;Лид Конвейер&raquo;&nbsp;&mdash; лидогенерация для бизнеса.
+            </div>
+            <div class="footer__requisites">
+                ООО &laquo;ДС-ГРУПП&raquo; ИНН 7801355174&nbsp;ОГРН 1187847129425
+            </div>
+        </div>
+        <nav class="footer__nav">
+            {% include '../../components/navigation/navigation.twig' with {
+                modificator: 'navigation_theme_bottom',
+                items: [
+                    {
+                        title: 'Блог',
+                        url: '#'
+                    }, {
+                        title: 'Договор-оферта',
+                        url: '#'
+                    }, {
+                        title: 'Политика конфиденциальности',
+                        url: '#'
+                    }, {
+                        title: 'Соглашение об&nbsp;обработке данных',
+                        url: '#'
+                    }, {
+                        title: 'Вход в&nbsp;личный кабинет',
+                        url: '#'
+                    }
+                ]
+            } %}
+        </nav>
+    </div>
+</footer>
