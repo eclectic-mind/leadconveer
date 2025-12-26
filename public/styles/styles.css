@@ -70,19 +70,19 @@
 @font-face {
   font-display: swap;
   font-family: montserrat;
-  src: url("/fonts/montserrat/Montserrat-Regular.woff2") format("woff2"), url("/fonts/montserrat/Montserrat-Regular.woff") format("woff");
+  src: url("../fonts/montserrat/Montserrat-Regular.woff2") format("woff2"), url("../fonts/montserrat/Montserrat-Regular.woff") format("woff");
   font-weight: 400;
 }
 @font-face {
   font-display: swap;
   font-family: montserrat;
-  src: url("/fonts/montserrat/Montserrat-Bold.woff2") format("woff2"), url("/fonts/montserrat/Montserrat-Bold.woff") format("woff");
+  src: url("../fonts/montserrat/Montserrat-Bold.woff2") format("woff2"), url("../fonts/montserrat/Montserrat-Bold.woff") format("woff");
   font-weight: 700;
 }
 @font-face {
   font-display: swap;
   font-family: inter;
-  src: url("/fonts/inter/Inter-Regular.woff2") format("woff2"), url("/fonts/inter/Inter-Regular.woff") format("woff");
+  src: url("../fonts/inter/Inter-Regular.woff2") format("woff2"), url("../fonts/inter/Inter-Regular.woff") format("woff");
   font-weight: 400;
 }
 html {
@@ -377,7 +377,7 @@ img {
   min-width: 44px;
   height: 44px;
   min-height: 44px;
-  background-image: url("/images/icons/star-colored.svg");
+  background-image: url("../images/icons/star-colored.svg");
   background-repeat: no-repeat;
   background-position: left center;
   background-size: contain;
@@ -632,7 +632,7 @@ picture {
   min-width: 72px;
   height: 72px;
   min-height: 72px;
-  background-image: url("/images/icons/money-face.svg");
+  background-image: url("../images/icons/money-face.svg");
   background-repeat: no-repeat;
   background-position: left center;
   background-size: contain;
